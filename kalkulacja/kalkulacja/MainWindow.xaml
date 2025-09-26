@@ -1,0 +1,27 @@
+﻿<Window x:Class="kalkulacja.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kalkulacja"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="498" Width="291">
+    <Grid Margin="0,0,10,0">
+        <TextBlock HorizontalAlignment="Left" Margin="67,10,0,0" TextWrapping="Wrap" Text="Kalkulacja" VerticalAlignment="Top" FontSize="40"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,99,0,0" TextWrapping="Wrap" Text="Rodzaj paliwa:" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Benzyna" HorizontalAlignment="Left" Margin="8,137,0,0" VerticalAlignment="Top" Click="Button_Click" Width="60"/>
+        <Button Content="Olej" HorizontalAlignment="Left" Margin="91,137,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="60"/>
+        <Button Content="Gaz" HorizontalAlignment="Left" Margin="174,137,0,0" VerticalAlignment="Top" Click="Button_Click_2" Width="60"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,190,0,0" TextWrapping="Wrap" Text="Dystans (w km):" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="dystans" HorizontalAlignment="Left" Margin="45,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,262,0,0" TextWrapping="Wrap" Text="Spalanie (na 100 km):" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="spalanie" HorizontalAlignment="Left" Margin="45,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Oblicz koszt przejazdu" HorizontalAlignment="Left" Margin="93,338,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,373,0,0" TextWrapping="Wrap" Text="Koszt przejazdu wynosi:" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="wynik" HorizontalAlignment="Left" Margin="11,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
