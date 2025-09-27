@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\142ga\\source\\repos\\WPF\\kalkulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|c:\\users\\142ga\\source\\repos\\wpf\\kalkulator\\kalkulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|solutionrelative:kalkulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|c:\\users\\142ga\\source\\repos\\wpf\\kalkulator\\kalkulator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|solutionrelative:kalkulator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|c:\\users\\142ga\\source\\repos\\wpf\\kalkulator\\kalkulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|solutionrelative:kalkulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D94A9590-C39C-4D41-936E-EC2D5EE01C1D}|kalkulator\\kalkulator.csproj|c:\\users\\142ga\\source\\repos\\wpf\\kalkulator\\kalkulator\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -25,25 +25,21 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\142ga\\source\\repos\\WPF\\kalkulator\\kalkulator\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "kalkulator\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\142ga\\source\\repos\\WPF\\kalkulator\\kalkulator\\MainWindow.xaml.cs",
               "RelativeToolTip": "kalkulator\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAA1wHgAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwHgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-27T13:43:47.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\142ga\\source\\repos\\WPF\\kalkulator\\kalkulator\\MainWindow.xaml",
               "RelativeDocumentMoniker": "kalkulator\\MainWindow.xaml",

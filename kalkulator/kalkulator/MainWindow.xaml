@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kalkulator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="wynik" HorizontalAlignment="Left" Margin="54,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="116" Height="40"/>
-        <Button Content="1" HorizontalAlignment="Left" Margin="53,99,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_1"/>
-        <Button Content="2" HorizontalAlignment="Left" Margin="96,99,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_2"/>
-        <Button Content="3" HorizontalAlignment="Left" Margin="140,99,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_3"/>
-        <Button Content="4" HorizontalAlignment="Left" Margin="53,140,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_4"/>
-        <Button Content="5" HorizontalAlignment="Left" Margin="96,140,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_5"/>
-        <Button Content="6" HorizontalAlignment="Left" Margin="140,140,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_6"/>
-        <Button Content="7" HorizontalAlignment="Left" Margin="53,180,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_7"/>
-        <Button Content="8" HorizontalAlignment="Left" Margin="96,180,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_8"/>
-        <Button Content="9" HorizontalAlignment="Left" Margin="140,180,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_9"/>
-        <Button Content="C" HorizontalAlignment="Left" Margin="182,60,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="wyczysc"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="182,100,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dodawanie"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="182,140,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="odejmowanie"/>
-        <Button Content="*" HorizontalAlignment="Left" Margin="182,184,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="mnozenie"/>
-        <Button Content="/" HorizontalAlignment="Left" Margin="182,226,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dzielenie"/>
-        <Button Content="=" HorizontalAlignment="Left" Margin="140,266,0,0" VerticalAlignment="Top" Height="30" Width="72" Click="pokazWynik"/>
-        <Button Content="0" HorizontalAlignment="Left" Margin="96,224,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_0"/>
-        <Button Content="," HorizontalAlignment="Left" Margin="140,224,0,0" VerticalAlignment="Top" Height="30" Width="30"/>
+        Title="MainWindow" Height="314" Width="211">
+    <Grid Margin="0,0,10,0">
+        <TextBox x:Name="wynik" HorizontalAlignment="Left" Margin="24,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="116" Height="40"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="22,74,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_1"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="66,74,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_2"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="110,74,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_3"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="22,115,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_4"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="66,115,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_5"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="110,115,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_6"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="22,155,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_7"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="66,155,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_8"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="110,155,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_9"/>
+        <Button Content="C" HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="wyczysc"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="152,74,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dodawanie"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="152,115,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="odejmowanie"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="152,155,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="mnozenie"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="152,199,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dzielenie"/>
+        <Button Content="=" HorizontalAlignment="Left" Margin="110,241,0,0" VerticalAlignment="Top" Height="30" Width="72" Click="pokazWynik"/>
+        <Button Content="0" HorizontalAlignment="Left" Margin="66,199,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_0"/>
+        <Button Content="," HorizontalAlignment="Left" Margin="110,199,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="przecinek"/>
 
     </Grid>
 </Window>
