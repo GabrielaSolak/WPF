@@ -18,10 +18,10 @@
         <Button Content="8" HorizontalAlignment="Left" Margin="96,180,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_8"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="140,180,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_9"/>
         <Button Content="C" HorizontalAlignment="Left" Margin="182,60,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="wyczysc"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="182,100,0,0" VerticalAlignment="Top" Height="30" Width="30"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="182,140,0,0" VerticalAlignment="Top" Height="30" Width="30"/>
-        <Button Content="*" HorizontalAlignment="Left" Margin="182,184,0,0" VerticalAlignment="Top" Height="30" Width="30"/>
-        <Button Content="/" HorizontalAlignment="Left" Margin="182,226,0,0" VerticalAlignment="Top" Height="30" Width="30"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="182,100,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dodawanie"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="182,140,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="odejmowanie"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="182,184,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="mnozenie"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="182,226,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="dzielenie"/>
         <Button Content="=" HorizontalAlignment="Left" Margin="140,266,0,0" VerticalAlignment="Top" Height="30" Width="72" Click="pokazWynik"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="96,224,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="Click_0"/>
         <Button Content="," HorizontalAlignment="Left" Margin="140,224,0,0" VerticalAlignment="Top" Height="30" Width="30"/>

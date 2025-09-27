@@ -20,7 +20,10 @@ namespace kalkulator
         {
             InitializeComponent();
         }
+
         string wybrana_liczba = "";
+        string wybrana_operacja = "";
+        int pierwsza_liczba = 0;
 
         private void Click_1(object sender, RoutedEventArgs e)
         {
@@ -82,15 +85,61 @@ namespace kalkulator
             wynik.Text = wybrana_liczba;
         }
 
-        private void pokazWynik(object sender, RoutedEventArgs e)
-        {
-            //wynik.Text = wybrana_liczba;
-        }
-
         private void wyczysc(object sender, RoutedEventArgs e)
         {
             wybrana_liczba = "";
             wynik.Text = wybrana_liczba;
+        }
+
+        private void dodawanie(object sender, RoutedEventArgs e)
+        {
+            wybrana_operacja = "+";
+            pierwsza_liczba = int.Parse(wynik.Text);
+            wybrana_liczba = "";
+            wynik.Text = wybrana_liczba;
+        }
+        
+        private void odejmowanie(object sender, RoutedEventArgs e)
+        {
+            wybrana_operacja = "-";
+            pierwsza_liczba = int.Parse(wynik.Text);
+            wybrana_liczba = "";
+            wynik.Text = wybrana_liczba;
+        }
+
+        private void mnozenie(object sender, RoutedEventArgs e)
+        {
+            wybrana_operacja = "*";
+            pierwsza_liczba = int.Parse(wynik.Text);
+            wybrana_liczba = "";
+            wynik.Text = wybrana_liczba;
+        }
+
+        private void dzielenie(object sender, RoutedEventArgs e)
+        {
+            wybrana_operacja = "/";
+            pierwsza_liczba = int.Parse(wynik.Text);
+            wybrana_liczba = "";
+            wynik.Text = wybrana_liczba;
+        }
+        
+        private void pokazWynik(object sender, RoutedEventArgs e)
+        {
+            if (wybrana_operacja == "+") {
+                wynik.Text = (pierwsza_liczba + int.Parse(wybrana_liczba)).ToString();
+            }
+            else if (wybrana_operacja == "-")
+            {
+                wynik.Text = (pierwsza_liczba - int.Parse(wybrana_liczba)).ToString();
+            }
+            else if (wybrana_operacja == "*")
+            {
+                wynik.Text = (pierwsza_liczba * int.Parse(wybrana_liczba)).ToString();
+            }
+            else if (wybrana_operacja == "/")
+            {
+                wynik.Text = (pierwsza_liczba / int.Parse(wybrana_liczba)).ToString();
+            }
         }
     }
 }
