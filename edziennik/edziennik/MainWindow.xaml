@@ -1,0 +1,37 @@
+﻿<Window x:Class="edziennik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:edziennik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="Imię:" />
+            <TextBox Name="ImieTextBox" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Nazwisko:" />
+            <TextBox Name="NazwiskoTextBox" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Wynik testu 1 (max 50):" />
+            <TextBox Name="Test1TextBox" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Wynik testu 2 (max 70):" />
+            <TextBox Name="Test2TextBox" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Wynik testu 3 (max 80):" />
+            <TextBox Name="Test3TextBox" Margin="0,5,0,10"/>
+
+            <Button Content="Oblicz wynik" Click="Oblicz_Click" Margin="0,10"/>
+
+            <TextBlock Text="Wyniki:" FontWeight="Bold" FontSize="14"/>
+            <TextBlock Name="UczenTextBlock" FontWeight="Bold" Margin="0,5"/>
+            <TextBlock Name="Test1TextBlock" />
+            <TextBlock Name="Test2TextBlock" />
+            <TextBlock Name="Test3TextBlock" />
+            <TextBlock Name="SredniaTextBlock" Margin="10,10,0,0"/>
+            <TextBlock Name="InfoTextBlock" FontWeight="Bold" Foreground="DarkRed" Margin="10,10,0,0"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
