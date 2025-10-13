@@ -21,34 +21,66 @@ namespace kalkulator_BMI
             InitializeComponent();
         }
 
-        private void ObliczBMI_Click(object sender, RoutedEventArgs e)
+               private void ObliczBMI_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
-
-                if (string.IsNullOrWhiteSpace(txtWzrost.Text) || string.IsNullOrWhiteSpace(txtWaga.Text))
+                if (string.IsNullOrWhiteSpace(txtWaga.Text) || string.IsNullOrWhiteSpace(txtWzrost.Text))
                 {
-                    MessageBox.Show("Proszę wprowadzić wzrost i wagę.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Proszę wprowadzić wagę i wzrost.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                if (!double.TryParse(txtWaga.Text, out double waga) ||
+                    !double.TryParse(txtWzrost.Text, out double wzrost))
+                {
+                    MessageBox.Show("Proszę wprowadzić poprawne liczby.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                
-                if (!double.TryParse(txtWzrost.Text, out double wzrostCm) ||
-                    !double.TryParse(txtWaga.Text, out double waga))
+                string jednostkaWagi = ((ComboBoxItem)cmbWagaJednostka.SelectedItem).Content.ToString();
+                string jednostkaWzrostu = ((ComboBoxItem)cmbWzrostJednostka.SelectedItem).Content.ToString();
+
+                double wagaKg = 0;
+                double wzrostM = 0;
+
+                if ((jednostkaWzrostu == "stopy" || jednostkaWzrostu == "cale") && jednostkaWagi != "funty")
                 {
-                    MessageBox.Show("Proszę wprowadzić poprawne wartości liczbowe.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Podaj wagę w funtach, jeśli wybrałeś wzrost w stopach lub calach.", "Błąd jednostek", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
-                
-                double wzrostM = wzrostCm / 100;
+                if (jednostkaWzrostu == "cm" && jednostkaWagi != "kg")
+                {
+                    MessageBox.Show("Podaj wagę w kilogramach, jeśli wybrałeś wzrost w centymetrach.", "Błąd jednostek", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
 
-                
-                double bmi = waga / (wzrostM * wzrostM);
+                switch (jednostkaWagi)
+                {
+                    case "kg":
+                        wagaKg = waga;
+                        break;
+                    case "funty":
+                        wagaKg = waga * 0.45359237;
+                        break;
+                }
+
+                switch (jednostkaWzrostu)
+                {
+                    case "cm":
+                        wzrostM = wzrost / 100;
+                        break;
+                    case "cale":
+                        wzrostM = wzrost * 0.0254;
+                        break;
+                    case "stopy":
+                        wzrostM = wzrost * 0.3048;
+                        break;
+                }
+
+                double bmi = wagaKg / (wzrostM * wzrostM);
+
                 string kategoria;
-
-                
                 if (bmi < 18.5)
                     kategoria = "Niedowaga";
                 else if (bmi < 25)
@@ -58,7 +90,6 @@ namespace kalkulator_BMI
                 else
                     kategoria = "Otyłość";
 
-                
                 txtWynik.Text = $"Twoje BMI: {bmi:F2}\nKategoria: {kategoria}";
             }
             catch (Exception ex)
