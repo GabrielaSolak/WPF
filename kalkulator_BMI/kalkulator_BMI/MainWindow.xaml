@@ -5,15 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kalkulator_BMI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="282">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" Text="Kalkulator BMI" FontSize="30" FontWeight="Bold" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Wzrost (cm)"/><Run Language="pl-pl" Text=":"/></TextBlock>
-        <TextBox x:Name="txtWzrost" HorizontalAlignment="Left" Margin="127,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Waga"/><Run Text=" ("/><Run Language="pl-pl" Text="kg"/><Run Text=")"/><Run Language="pl-pl" Text=":"/></TextBlock>
-        <TextBox x:Name="txtWaga" HorizontalAlignment="Left" Margin="127,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Oblicz BMI" HorizontalAlignment="Left" Margin="90,236,0,0" VerticalAlignment="Top" Width="97" Height="28" Click="ObliczBMI_Click"/>
-        <TextBlock x:Name="txtWynik" HorizontalAlignment="Left" Margin="24,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="55" Width="223"/>
+            Title="MainWindow" Height="450" Width="307">
+<Grid>
+    
+    <TextBlock HorizontalAlignment="Center" Margin="0,28,0,0"
+               TextWrapping="Wrap" Text="Kalkulator BMI"
+               FontSize="30" FontWeight="Bold" VerticalAlignment="Top"/>
 
-    </Grid>
+    
+    <TextBlock HorizontalAlignment="Left" Margin="34,111,0,0"
+               TextWrapping="Wrap" VerticalAlignment="Top">
+        <Run Text="Wzrost:"/>
+    </TextBlock>
+    <TextBox x:Name="txtWzrost" HorizontalAlignment="Left"
+             Margin="127,111,0,0" Width="80" VerticalAlignment="Top"/>
+    <ComboBox x:Name="cmbWzrostJednostka" HorizontalAlignment="Left"
+              Margin="212,111,0,0" Width="60" VerticalAlignment="Top">
+        <ComboBoxItem Content="cm" IsSelected="True"/>
+        <ComboBoxItem Content="cale"/>
+        <ComboBoxItem Content="stopy"/>
+    </ComboBox>
+
+    
+    <TextBlock HorizontalAlignment="Left" Margin="34,152,0,0"
+               TextWrapping="Wrap" VerticalAlignment="Top">
+        <Run Text="Waga:"/>
+    </TextBlock>
+    <TextBox x:Name="txtWaga" HorizontalAlignment="Left"
+             Margin="127,152,0,0" Width="80" VerticalAlignment="Top"/>
+    <ComboBox x:Name="cmbWagaJednostka" HorizontalAlignment="Left"
+              Margin="212,152,0,0" Width="60" VerticalAlignment="Top">
+        <ComboBoxItem Content="kg" IsSelected="True"/>
+        <ComboBoxItem Content="funty"/>
+    </ComboBox>
+
+    
+    <Button Content="Oblicz BMI" HorizontalAlignment="Left"
+            Margin="90,236,0,0" VerticalAlignment="Top"
+            Width="97" Height="28" Click="ObliczBMI_Click"/>
+
+    
+    <TextBlock x:Name="txtWynik" HorizontalAlignment="Left"
+               Margin="24,320,0,0" TextWrapping="Wrap"
+               Text="" VerticalAlignment="Top"
+               Height="80" Width="240"
+               FontSize="16" TextAlignment="Center" FontWeight="Bold"/>
+</Grid>
 </Window>
+
