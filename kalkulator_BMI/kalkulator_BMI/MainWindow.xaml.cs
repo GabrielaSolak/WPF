@@ -14,14 +14,15 @@ namespace kalkulator_BMI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+        public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+    
 
-               private void ObliczBMI_Click(object sender, RoutedEventArgs e)
+    private void ObliczBMI_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -36,6 +37,7 @@ namespace kalkulator_BMI
                     MessageBox.Show("Proszę wprowadzić poprawne liczby.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
+                
 
                 string jednostkaWagi = ((ComboBoxItem)cmbWagaJednostka.SelectedItem).Content.ToString();
                 string jednostkaWzrostu = ((ComboBoxItem)cmbWzrostJednostka.SelectedItem).Content.ToString();
@@ -78,19 +80,46 @@ namespace kalkulator_BMI
                         break;
                 }
 
+
+                if (wagaKg < 25 || wagaKg > 200)
+                {
+                    MessageBox.Show("Nieprawidłowa waga (25-200 kg)", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (wzrostM < 1 || wzrostM > 2.5)
+                {
+                    MessageBox.Show("Nieprawidłowa wzrost (100-250 cm)", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+
                 double bmi = wagaKg / (wzrostM * wzrostM);
 
                 string kategoria;
+                string opis;
                 if (bmi < 18.5)
+                { 
                     kategoria = "Niedowaga";
+                    opis = "Postaraj się jeść więcej.";
+                }
                 else if (bmi < 25)
+                { 
                     kategoria = "Prawidłowa masa ciała";
+                    opis = "Trzymaj tak dalej, pamiętaj o systematycznych ćwiczeniach by utrzymać organizm w formie.";
+                }
                 else if (bmi < 30)
+                { 
                     kategoria = "Nadwaga";
+                    opis = "Postaraj się ograniczyć spożywane kalorie.";
+                }
                 else
+                { 
                     kategoria = "Otyłość";
+                    opis = "Ogranicz spożywane cykry i tłuszcze.";
+                }
 
-                txtWynik.Text = $"Twoje BMI: {bmi:F2}\nKategoria: {kategoria}";
+                txtWynik.Text = $"Twoje BMI: {bmi:F2}\nKategoria: {kategoria}\nOpis: {opis}";
             }
             catch (Exception ex)
             {
