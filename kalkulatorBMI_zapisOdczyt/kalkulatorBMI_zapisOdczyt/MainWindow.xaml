@@ -1,0 +1,96 @@
+﻿<Window x:Class="kalkulatorBMI_zapisOdczyt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kalkulatorBMI_zapisOdczyt"
+        mc:Ignorable="d"
+       Height="650" Width="650">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,5">
+                <Label Content="ID użytkownika:" Width="150"/>
+                <TextBox Name="UserIDInput" Width="120" Margin="5,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,5">
+                <Label Content="Waga:" Width="150"/>
+                <TextBox Name="WagaInput" Width="100" Margin="5,0"/>
+                <ComboBox Name="JednostkaWagi" Width="100" Margin="5,0">
+                    <ComboBoxItem Content="Kilogramy"/>
+                    <ComboBoxItem Content="Funty"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,5">
+                <Label Content="Wzrost:" Width="150"/>
+                <TextBox Name="WzrostInput" Width="100" Margin="5,0"/>
+                <ComboBox Name="JednostkaWzrostu" Width="100" Margin="5,0">
+                    <ComboBoxItem Content="Centymetry"/>
+                    <ComboBoxItem Content="Cale"/>
+                    <ComboBoxItem Content="Stopy"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,5">
+                <Label Content="Wiek:" Width="150"/>
+                <TextBox Name="WiekInput" Width="100" Margin="5,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="0,5">
+                <Label Content="Płeć:" Width="150"/>
+                <ComboBox Name="PlecCombo" Width="120" Margin="5,0">
+                    <ComboBoxItem Content="Mężczyzna"/>
+                    <ComboBoxItem Content="Kobieta"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="0,5">
+                <Label Content="Obwód talii (cm):" Width="150"/>
+                <TextBox Name="TaliaInput" Width="100" Margin="5,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="0,5">
+                <Label Content="Obwód bioder (cm):" Width="150"/>
+                <TextBox Name="BiodraInput" Width="100" Margin="5,0"/>
+            </StackPanel>
+
+            <!-- Przyciski -->
+            <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Center" Margin="0,10">
+                <Button Content="Oblicz" Width="100" Margin="5" Click="Oblicz_Click"/>
+                <Button Content="Zapisz wynik" Width="100" Margin="5" Click="Zapisz_Click"/>
+                <Button Content="Eksportuj CSV" Width="110" Margin="5" Click="EksportujCSV_Click"/>
+                <Button Content="Wyczyść" Width="100" Margin="5" Click="Wyczysc_Click"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="8" Margin="0,10">
+                <TextBlock Name="WynikText" FontSize="16" Foreground="DarkBlue" TextAlignment="Center"/>
+                <TextBlock Name="KategoriaText" FontSize="14" Foreground="DarkGreen" TextAlignment="Center"/>
+                <TextBlock Name="WHRText" FontSize="14" Foreground="Purple" TextAlignment="Center"/>
+                <TextBlock Name="BMRText" FontSize="14" Foreground="DarkOrange" TextAlignment="Center"/>
+                <TextBlock Name="SugestiaText" FontSize="13" Foreground="Black" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Name="BladText" FontSize="13" Foreground="Red" TextWrapping="Wrap" TextAlignment="Center"/>
+            </StackPanel>
+
+
+            <DataGrid Grid.Row="9" Name="HistoriaGrid" AutoGenerateColumns="True" Margin="0,10" Height="200"/>
+        </Grid>
+        </ScrollViewer>
+</Window>
