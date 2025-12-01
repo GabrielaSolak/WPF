@@ -1,0 +1,35 @@
+﻿<Window x:Class="egzamin_poczta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:egzamin_poczta"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <GroupBox HorizontalAlignment="Left" Header="Rodzaj przesyłki" Width="200" Margin="39,65,0,255"/>
+        <RadioButton x:Name="rbPocztowka" Content="Pocztówka" IsChecked="True" HorizontalAlignment="Left" Margin="53,100,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbList" Content="List" HorizontalAlignment="Left" Margin="53,121,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbPaczka" Content="Paczka" HorizontalAlignment="Left" Margin="53,141,0,0" VerticalAlignment="Top"/>
+
+        <Button Content="Sprawdź cene" Click="SprawdzCene_Click" HorizontalAlignment="Left" Margin="39,184,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <Image x:Name="Image_zdj" Source="/pocztowka.png" HorizontalAlignment="Left" Height="100" Margin="39,236,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="Label_cena" Content="Cena:" FontWeight="Bold" HorizontalAlignment="Left" Margin="161,236,0,0" VerticalAlignment="Top"/>
+
+        <GroupBox Header="Dane adresowe" Margin="296,69,225,167">
+
+        </GroupBox>
+
+        <Label Content="Ulica z numerem" HorizontalAlignment="Left" Margin="317,90,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="327,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+
+        <Label Content="Kod pocztowy" HorizontalAlignment="Left" Margin="317,142,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="327,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="89"/>
+
+        <Label Content="Miasto" HorizontalAlignment="Left" Margin="317,191,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="327,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Button Content="Zatwierdź" HorizontalAlignment="Left" Margin="39,329,0,0" VerticalAlignment="Top" Width="536"/>
+
+    </Grid>
+</Window>
