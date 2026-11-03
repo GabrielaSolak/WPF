@@ -1,0 +1,293 @@
+﻿using System.Globalization;
+
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace KalkulatorGSolak;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
+{
+    private double pamiec = 0;
+    private bool czyNoweDzialanie = false;
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+
+    private void PrzyciskZnak_Click(object sender, EventArgs e)
+    {
+        Button przycisk = (Button)sender;
+        string znak = przycisk.Content.ToString();
+
+        if (czyNoweDzialanie)
+        {
+            if ("+-*/^".Contains(znak))
+            {
+                etykietaHistoria.Content = poleEkran.Text + " " + znak;
+                poleEkran.Text += znak;
+                czyNoweDzialanie = false;
+                return;
+            }
+
+            poleEkran.Text = "0";
+            etykietaHistoria.Content = "";
+            czyNoweDzialanie = false;
+        }
+
+        if (poleEkran.Text == "0" && !"+-*/^)".Contains(znak))
+            poleEkran.Text = znak;
+        else
+            poleEkran.Text += znak;
+    }
+
+    private void PrzyciskPrzecinek_Click(object sender, EventArgs e)
+    {
+        if (czyNoweDzialanie)
+        {
+            poleEkran.Text = "0,";
+            etykietaHistoria.Content = "";
+            czyNoweDzialanie = false;
+            return;
+        }
+
+        int indeks = poleEkran.Text.Length - 1;
+        while (indeks >= 0 && (char.IsDigit(poleEkran.Text[indeks]) || poleEkran.Text[indeks] == ','))
+            indeks--;
+
+        string aktualnaLiczba = poleEkran.Text.Substring(indeks + 1);
+        if (!aktualnaLiczba.Contains(","))
+            poleEkran.Text += aktualnaLiczba.Length == 0 ? "0," : ",";
+    }
+
+    private void PrzyciskPierwiastek_Click(object sender, EventArgs e)
+    {
+        if (czyNoweDzialanie || poleEkran.Text == "0")
+        {
+            poleEkran.Text = "√(";
+            etykietaHistoria.Content = "";
+            czyNoweDzialanie = false;
+        }
+        else
+        {
+            poleEkran.Text += "√(";
+        }
+    }
+
+    private void PrzyciskUlamek_Click(object sender, EventArgs e)
+    {
+        if (czyNoweDzialanie || poleEkran.Text == "0")
+        {
+            poleEkran.Text = "1/(";
+            etykietaHistoria.Content = "";
+            czyNoweDzialanie = false;
+        }
+        else
+        {
+            poleEkran.Text += "1/(";
+        }
+    }
+
+    private void PrzyciskZmienZnak_Click(object sender, EventArgs e)
+    {
+        if (poleEkran.Text == "0") return;
+
+        poleEkran.Text = poleEkran.Text.StartsWith("-")
+            ? poleEkran.Text.Substring(1)
+            : "-" + poleEkran.Text;
+    }
+
+    // Edycja wyrażenia
+    private void PrzyciskCofnij_Click(object sender, EventArgs e)
+    {
+        if (czyNoweDzialanie)
+        {
+            PrzyciskWyczysc_Click(sender, e);
+            return;
+        }
+
+        poleEkran.Text = poleEkran.Text.Length > 1
+            ? poleEkran.Text.Substring(0, poleEkran.Text.Length - 1)
+            : "0";
+    }
+
+    private void PrzyciskWyczysc_Click(object sender, EventArgs e)
+    {
+        poleEkran.Text = "0";
+        etykietaHistoria.Content = "";
+        czyNoweDzialanie = false;
+    }
+
+    // Pamięć kalkulatora
+    private void PrzyciskMS_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            pamiec = ObliczWyrazenie(poleEkran.Text);
+            przyciskMR.Content = "MR*";
+            MessageBox.Show($"Zapisano do pamięci: {pamiec}", "Pamięć");
+        }
+        catch (Exception blad)
+        {
+            MessageBox.Show("Nie zapisano wartości: " + blad.Message, "Błąd");
+        }
+    }
+
+    private void PrzyciskMR_Click(object sender, EventArgs e)
+    {
+        string liczba = pamiec.ToString(CultureInfo.CurrentCulture);
+        poleEkran.Text = czyNoweDzialanie || poleEkran.Text == "0"
+            ? liczba
+            : poleEkran.Text + liczba;
+        etykietaHistoria.Content = "";
+        czyNoweDzialanie = false;
+    }
+
+    private void PrzyciskMC_Click(object sender, EventArgs e)
+    {
+        pamiec = 0;
+        przyciskMR.Content = "MR";
+        MessageBox.Show("Pamięć została wyczyszczona.", "Pamięć");
+    }
+
+    // Obliczenie wyniku, obsługa błędów i prezentacja rezultatu
+    private void PrzyciskRownaSie_Click(object sender, EventArgs e)
+    {
+        string wyrazenie = poleEkran.Text;
+
+        try
+        {
+            double wynik = ObliczWyrazenie(wyrazenie);
+            etykietaHistoria.Content = wyrazenie + " =";
+            poleEkran.Text = wynik.ToString(CultureInfo.CurrentCulture);
+            czyNoweDzialanie = true;
+        }
+        catch (DivideByZeroException)
+        {
+            MessageBox.Show("Nie można dzielić przez zero!", "Błąd matematyczny");
+        }
+        catch (Exception blad)
+        {
+            MessageBox.Show("Sprawdź wyrażenie: " + blad.Message, "Błąd składni");
+        }
+    }
+
+    // Parser zachowujący kolejność działań
+    private double ObliczWyrazenie(string wyrazenie)
+    {
+        wyrazenie = wyrazenie.Replace(" ", "").Replace(",", ".");
+        int indeks = 0;
+
+        double ParsujDodawanieOdejmowanie()
+        {
+            double wartosc = ParsujMnozenieDzielenie();
+            while (indeks < wyrazenie.Length && (wyrazenie[indeks] == '+' || wyrazenie[indeks] == '-'))
+            {
+                char dzialanie = wyrazenie[indeks++];
+                double kolejnaWartosc = ParsujMnozenieDzielenie();
+                wartosc = dzialanie == '+' ? wartosc + kolejnaWartosc : wartosc - kolejnaWartosc;
+            }
+            return wartosc;
+        }
+
+        double ParsujMnozenieDzielenie()
+        {
+            double wartosc = ParsujPotege();
+            while (indeks < wyrazenie.Length && (wyrazenie[indeks] == '*' || wyrazenie[indeks] == '/'))
+            {
+                char dzialanie = wyrazenie[indeks++];
+                double kolejnaWartosc = ParsujPotege();
+                if (dzialanie == '/' && kolejnaWartosc == 0)
+                    throw new DivideByZeroException();
+
+                wartosc = dzialanie == '*' ? wartosc * kolejnaWartosc : wartosc / kolejnaWartosc;
+            }
+            return wartosc;
+        }
+
+        double ParsujPotege()
+        {
+            double podstawa = ParsujCzynnik();
+            if (indeks < wyrazenie.Length && wyrazenie[indeks] == '^')
+            {
+                indeks++;
+                double wykladnik = ParsujPotege();
+                return Math.Pow(podstawa, wykladnik);
+            }
+            return podstawa;
+        }
+
+        double ParsujCzynnik()
+        {
+            if (indeks >= wyrazenie.Length)
+                throw new FormatException("Brakuje liczby lub zamknięcia działania.");
+
+            if (wyrazenie[indeks] == '-' || wyrazenie[indeks] == '+')
+            {
+                char znak = wyrazenie[indeks++];
+                double wartosc = ParsujCzynnik();
+                return znak == '-' ? -wartosc : wartosc;
+            }
+
+            if (wyrazenie[indeks] == '(')
+            {
+                indeks++;
+                double wewnatrz = ParsujDodawanieOdejmowanie();
+                if (indeks >= wyrazenie.Length || wyrazenie[indeks] != ')')
+                    throw new FormatException("Brakuje nawiasu zamykającego ).");
+                indeks++;
+                return wewnatrz;
+            }
+
+            if (wyrazenie[indeks] == '√')
+            {
+                indeks++;
+                double liczba = ParsujCzynnik();
+                if (liczba < 0)
+                    throw new ArithmeticException("Nie obliczamy pierwiastka z liczby ujemnej.");
+                return Math.Sqrt(liczba);
+            }
+
+            int poczatek = indeks;
+            while (indeks < wyrazenie.Length &&
+                   (char.IsDigit(wyrazenie[indeks]) || wyrazenie[indeks] == '.'))
+                indeks++;
+
+            if (poczatek == indeks)
+                throw new FormatException($"Niepoprawny znak: {wyrazenie[indeks]}.");
+
+            string liczbaTekst = wyrazenie.Substring(poczatek, indeks - poczatek);
+            return double.Parse(liczbaTekst, CultureInfo.InvariantCulture);
+        }
+
+        double wynik = ParsujDodawanieOdejmowanie();
+        if (indeks != wyrazenie.Length)
+            throw new FormatException($"Nieoczekiwany znak: {wyrazenie[indeks]}.");
+
+        return wynik;
+    }
+
+    private void PrzyciskF_Click(object sender, EventArgs e)
+    {
+        int.TryParse(poleEkran.Text, out int liczba);
+        int F = liczba * 9 / 5 + 32;
+        poleEkran.Text = F.ToString();
+    }
+
+    private void PrzyciskC_Click(object sender, EventArgs e)
+    {
+        int.TryParse(poleEkran.Text, out int liczba);
+        int C = (liczba - 32) * 5 / 9;
+        poleEkran.Text = C.ToString();
+    }
+}
+
