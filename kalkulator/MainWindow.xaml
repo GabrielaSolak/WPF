@@ -1,0 +1,54 @@
+﻿<Window x:Class="KalkulatorGSolak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KalkulatorGSolak"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="410">
+    <Grid>
+        <Label x:Name="etykietaHistoria" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="34,14,0,0" VerticalAlignment="Top" Width="258"/>
+
+        <TextBox x:Name="poleEkran" HorizontalContentAlignment="Right" FontWeight="Bold" FontSize="30" HorizontalAlignment="Left" Margin="34,44,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="258" Height="45"/>
+
+        <Button x:Name="przyciskMC" Click="PrzyciskMC_Click" Content="MC" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="30,116,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="przyciskMR" Click="PrzyciskMR_Click" Content="MR" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="84,116,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="przyciskMS" Click="PrzyciskMS_Click" Content="MS" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="137,116,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="przyciskWyczysc" Click="PrzyciskWyczysc_Click" Content="C" FontWeight="Bold" Background="LightPink" HorizontalAlignment="Left" Margin="194,116,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="przyciskCofnij" Click="PrzyciskCofnij_Click" Content="⌫" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="252,116,0,0" VerticalAlignment="Top" Width="40"/>
+
+        <Button x:Name="przyciskNawiasOtworz" Click="PrzyciskZnak_Click" Content="(" Background="White" HorizontalAlignment="Left" Margin="30,151,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskNawiasZamknij" Click="PrzyciskZnak_Click" Content=")" Background="White" HorizontalAlignment="Left" Margin="99,151,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskPotega" Click="PrzyciskZnak_Click" Content="^" Background="White" HorizontalAlignment="Left" Margin="168,151,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskPierwiastek" Click="PrzyciskZnak_Click" Content="√" Background="White" HorizontalAlignment="Left" Margin="237,151,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+
+        <Button x:Name="przyciskUlamek" Click="PrzyciskUlamek_Click" Content="1/x" Background="White" HorizontalAlignment="Left" Margin="30,192,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskZmienZnak" Click="PrzyciskZmienZnak_Click" Content="±" Background="White" HorizontalAlignment="Left" Margin="99,192,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskPodziel" Click="PrzyciskZnak_Click" Content="/" Background="White" HorizontalAlignment="Left" Margin="168,192,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskPomnoz" Click="PrzyciskZnak_Click" Content="*" Background="White" HorizontalAlignment="Left" Margin="237,192,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+
+        <Button x:Name="przycisk7" Click="PrzyciskZnak_Click" Content="7" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="30,235,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk8" Click="PrzyciskZnak_Click" Content="8" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="99,235,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk9" Click="PrzyciskZnak_Click" Content="9" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="168,235,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskOdejmij" Click="PrzyciskZnak_Click" Content="-" Background="White" HorizontalAlignment="Left" Margin="237,235,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+
+        <Button x:Name="przycisk4" Click="PrzyciskZnak_Click" Content="4" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="30,276,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk5" Click="PrzyciskZnak_Click" Content="5" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="99,276,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk6" Click="PrzyciskZnak_Click" Content="6" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="168,276,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskDodaj" Click="PrzyciskZnak_Click" Content="+" Background="White" HorizontalAlignment="Left" Margin="237,276,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+
+        <Button x:Name="przycisk1" Click="PrzyciskZnak_Click" Content="1" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="30,319,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk2" Click="PrzyciskZnak_Click" Content="2" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="99,319,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przycisk3" Click="PrzyciskZnak_Click" Content="3" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="168,319,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+        <Button x:Name="przyciskRownaSie" Click="PrzyciskRownaSie_Click" Content="=" Background="LightBlue" HorizontalAlignment="Left" Margin="237,319,0,0" VerticalAlignment="Top" Width="55" Height="74"/>
+
+        <Button x:Name="przycisk0" Click="PrzyciskZnak_Click" Content="0" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="30,364,0,0" VerticalAlignment="Top" Width="124" Height="29"/>
+        <Button x:Name="przyciskPrzecinek" Click="PrzyciskPrzecinek_Click" Content="," FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="168,364,0,0" VerticalAlignment="Top" Width="55" Height="29"/>
+
+        <Button x:Name="f" Click="PrzyciskF_Click" Content="°F" Background="White" HorizontalAlignment="Left" Margin="311,151,0,0" VerticalAlignment="Top" Width="36" Height="29"/>
+        <Button x:Name="c" Click="PrzyciskC_Click" Content="°C" Background="White" HorizontalAlignment="Left" Margin="311,192,0,0" VerticalAlignment="Top" Width="36" Height="29"/>
+
+
+
+    </Grid>
+</Window>
